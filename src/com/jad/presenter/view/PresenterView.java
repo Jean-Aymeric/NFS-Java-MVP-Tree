@@ -1,5 +1,12 @@
 package com.jad.presenter.view;
 
-public abstract class PresenterView implements IPresenterView {
+public class PresenterView implements IPresenterView {
 
+    @Override
+    public String display() {
+        System.out.println("/////////////////////");
+        System.out.println("//     MON TRUC    //");
+        System.out.println("/////////////////////");
+        return null;
+    }
 }

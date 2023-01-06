@@ -13,8 +13,8 @@ public class PresenterBinaryTree {
         }
         int height = binaryTree.getHeight();
 
-        nodes = new BinaryNode[height][(int) Math.pow(2, height - 1)];
-        this.fillNodesArray(binaryTree.getRoot(), 0, 0);
+        nodes = new BinaryNode[height][((int) Math.pow(2, height - 1)) * 2 - 1];
+        this.fillNodesArray(binaryTree.getRoot(), 0, this.getWidth() / 2);
     }
 
     private void fillNodesArray(BinaryNode<?> node, int height, int horizontalRank) {
@@ -22,8 +22,8 @@ public class PresenterBinaryTree {
             return;
         }
         this.nodes[height][horizontalRank] = node;
-        this.fillNodesArray(node.getLeft(), height + 1, horizontalRank);
-        this.fillNodesArray(node.getRight(), height + 1, horizontalRank + (this.nodes[0].length / (int) Math.pow(2, height+1)));
+        this.fillNodesArray(node.getLeft(), height + 1, (int) (horizontalRank - (Math.pow(2, this.getHeight() - height - 2))));
+        this.fillNodesArray(node.getRight(), height + 1, (int) (horizontalRank + (Math.pow(2, this.getHeight() - height - 2))));
     }
 
     public int getHeight() {
@@ -41,6 +41,6 @@ public class PresenterBinaryTree {
     }
 
     public String getValueByXY(int x, int y) {
-        return (this.nodes[y][x] == null) ? "" : this.nodes[y][x].getValue().toString();
+        return (this.nodes[y][x] == null) ? " " : this.nodes[y][x].getValue().toString();
     }
 }
