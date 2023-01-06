@@ -11,7 +11,12 @@ public class BinaryTreeView implements IPresenterView {
 
     @Override
     public String display() {
-        // To do
+        for (int y = 0; y < this.presenterBinaryTree.getHeight(); y++) {
+            for(int x= 0; x < this.presenterBinaryTree.getWidth(); x++) {
+                System.out.print(this.presenterBinaryTree.getValueByXY(x, y) + "\t");
+            }
+            System.out.println("");
+        }
         return null;
     }
 }

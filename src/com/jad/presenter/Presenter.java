@@ -3,6 +3,7 @@ package com.jad.presenter;
 import com.jad.model.bynarytree.BinaryTree;
 import com.jad.presenter.model.PresenterBinaryTree;
 import com.jad.presenter.view.BinaryTreeView;
+import com.jad.presenter.view.FileNameView;
 import com.jad.share.IController;
 import com.jad.share.IModel;
 import com.jad.share.IPresenter;
@@ -38,7 +39,7 @@ public class Presenter implements IPresenter, Observer {
 
     @Override
     public String askFileName() {
-        return null;
+        return new FileNameView().display();
     }
 
     @Override

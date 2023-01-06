@@ -18,4 +18,12 @@ public class BinaryTree<Value> {
     public void setRoot(final BinaryNode<Value> root) {
         this.root = root;
     }
+
+    public int getHeight() {
+        return (this.getRoot() == null) ? 0 : BinaryTree.getHeightFromNode(this.getRoot());
+    }
+
+    private static int getHeightFromNode(BinaryNode<?> node) {
+        return (node == null) ? 0 : (Math.max(BinaryTree.getHeightFromNode(node.getLeft()), BinaryTree.getHeightFromNode(node.getRight()))+1);
+    }
 }
